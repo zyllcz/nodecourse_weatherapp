@@ -11,8 +11,8 @@ const weather = (coordinates, callback)=>{
             callback('Unable to obtain weather data, try another location', undefined)
         }
         else{
-            callback(undefined, current.weather_descriptions[0] + ', it currently is ' + current.temperature + ' degrees out.' + 
-            ' There is ' + current.precip  +'% chance of rain')
+            callback(undefined, {description: current.weather_descriptions[0] + ', it currently is ' + current.temperature + ' degrees, and feels like '+ current.feelslike + ' degrees with humidity ' + current.humidity+ '%.' + 
+            ' There is ' + current.precip  +'% chance of rain.', icon: current.weather_icons})
         }
     })
 }

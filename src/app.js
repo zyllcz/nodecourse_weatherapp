@@ -70,7 +70,7 @@ app.get('/weather', (req,res)=>{
             if (weatherError){
                 return res.send({error: 'error calling weather service'})
             }
-            res.send({address, location:data.location, forecast: weatherData})
+            res.send({address, location:data.location, forecast: weatherData.description, forecastIcon:weatherData.icon})
         })
     })
 
