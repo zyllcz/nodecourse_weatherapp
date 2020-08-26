@@ -1,7 +1,9 @@
 const request = require('request')
+const dotenv = require ('dotenv')
+dotenv.config()
 
 const weather = (coordinates, callback)=>{
-    const url = 'http://api.weatherstack.com/current?access_key=c17503ba14bb842ae5c75519be34e2cd&units=m&query='+ coordinates.latitude +','+ coordinates.longitude+''
+    const url = 'http://api.weatherstack.com/current?access_key='+ process.env.weatherAccessToken+'&units=m&query='+ coordinates.latitude +','+ coordinates.longitude+''
     request({url, json: true}, (error, response)=> {
         const {current, error:responseError} = response.body
         if (error){
